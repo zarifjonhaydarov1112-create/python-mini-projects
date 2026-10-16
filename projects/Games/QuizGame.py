@@ -1,49 +1,59 @@
-print(" Welcome To My Quiz Game \n Interesting Game to Play")
-Player = input(" Do you want to play the game? \n" )
-if Player.lower() != 'yes':
-    print("Good Bye")
-    quit()  
 
-name_player = input("Enter Your Name: ")
+print("Welcome to My Quiz Game!\nAn Interesting Game to Play")
 
-print("Let's Start the Game :) ",name_player)
+player = input("Do you want to play the game? (yes/no): ")
+
+if player.lower().strip() != "yes":
+    print("Goodbye!")
+    quit()
+
+name_player = input("Enter your name: ")
+print(f"Let's start the game, {name_player}! 😊")
 
 score = 0
+total_questions = 5
 
-answer = input(' What is CPU stands for? \n ')
-if answer.lower() == 'central processing unit':
-    print("Correct")
+answer = input("What does CPU stand for? ").lower().strip()
+if answer == "central processing unit":
+    print("Correct!")
     score += 1
 else:
-    print('Wrong')
- 
-answer = input(' What is GPU stands for? \n ')
-if answer.lower() == 'graphical processing unit':
-    print("Correct")
-    score += 1
-else:
-    print('Wrong')
+    print("Wrong! The correct answer is Central Processing Unit.")
 
-answer = input(' What is RAM stands for? \n ')
-if answer.lower() == 'random access memory':
-    print("Correct")
+answer = input("What does GPU stand for? ").lower().strip()
+if answer == "graphics processing unit" or answer == "graphical processing unit":
+    print("Correct!")
     score += 1
 else:
-    print('Wrong')
+    print("Wrong! The correct answer is Graphics Processing Unit.")
 
-answer = input(' What is ROM stands for? \n ')
-if answer.lower() == 'read only memory':
-    print("Correct")
+answer = input("What does RAM stand for? ").lower().strip()
+if answer == "random access memory":
+    print("Correct!")
     score += 1
 else:
-    print('Wrong')
+    print("Wrong! The correct answer is Random Access Memory.")
 
-answer = input(' Mouse is an input device or output device? \n ')
-if answer.lower() == 'input device':
-    print("Correct")
+answer = input("What does ROM stand for? ").lower().strip()
+if answer == "read only memory":
+    print("Correct!")
     score += 1
 else:
-    print('Wrong')
-    
-print("You got the " + str(score)+ " correct answers")
-print("You got the " + str((score/5) *100)+ " correct answers")
+    print("Wrong! The correct answer is Read Only Memory.")
+
+answer = input("Is a mouse an input device or an output device? ").lower().strip()
+if answer == "input device":
+    print("Correct!")
+    score += 1
+else:
+    print("Wrong! A mouse is an input device.")
+
+percentage = (score / total_questions) * 100
+
+print("\n--- Quiz Results ---")
+print(f"Player: {name_player}")
+print(f"Correct answers: {score}/{total_questions}")
+print(f"Your score: {percentage:.0f}%")
+
+print("Excellent work!" if percentage >= 80 else "Keep practicing!")
+
